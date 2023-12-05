@@ -1,9 +1,9 @@
 package router
 
 import (
-	"github.com/waffle-frame/clean-architecture-template/internal/transport/http/handlers"
-	"github.com/waffle-frame/clean-architecture-template/pkg/bootstrap/http/middlewares"
-	transportHTTP "github.com/waffle-frame/clean-architecture-template/pkg/bootstrap/http/router"
+	"github.com/ahliyor25/crm/internal/transport/http/handlers"
+	"github.com/ahliyor25/crm/pkg/bootstrap/http/middlewares"
+	transportHTTP "github.com/ahliyor25/crm/pkg/bootstrap/http/router"
 )
 
 // NewRouter ..

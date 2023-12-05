@@ -6,7 +6,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/waffle-frame/clean-architecture-template/pkg/bootstrap/http/misc/response"
+	"github.com/ahliyor25/crm/pkg/bootstrap/http/misc/response"
 )
 
 // HPingPong — simple router to check server status
@@ -19,10 +19,11 @@ import (
 // ---
 //
 // responses:
-//   200:
-//     description: Pong ! 🥎
-//     schema:
-//       "$ref": "#/responses/success/schema"
+//
+//	200:
+//	  description: Pong ! 🥎
+//	  schema:
+//	    "$ref": "#/responses/success/schema"
 func (h *Handler) HPingPong(rw http.ResponseWriter, r *http.Request) {
 	var resp response.Response
 	defer resp.WriterJSON(rw)

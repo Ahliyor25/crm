@@ -1,9 +1,9 @@
 package http
 
 import (
-	"github.com/waffle-frame/clean-architecture-template/pkg/bootstrap/http/middlewares"
-	"github.com/waffle-frame/clean-architecture-template/pkg/bootstrap/http/misc"
-	"github.com/waffle-frame/clean-architecture-template/pkg/bootstrap/http/server"
+	"github.com/ahliyor25/crm/pkg/bootstrap/http/middlewares"
+	"github.com/ahliyor25/crm/pkg/bootstrap/http/misc"
+	"github.com/ahliyor25/crm/pkg/bootstrap/http/server"
 	"go.uber.org/fx"
 )
 

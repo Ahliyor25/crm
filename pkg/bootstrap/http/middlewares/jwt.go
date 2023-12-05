@@ -6,8 +6,8 @@ import (
 	"os"
 	"strings"
 
+	"github.com/ahliyor25/crm/pkg/bootstrap/http/misc/response"
 	"github.com/golang-jwt/jwt"
-	"github.com/waffle-frame/clean-architecture-template/pkg/bootstrap/http/misc/response"
 )
 
 func (p *provider) JWT(handler http.HandlerFunc) http.HandlerFunc {

@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/waffle-frame/clean-architecture-template/pkg/bootstrap/http/misc/response"
+	"github.com/ahliyor25/crm/pkg/bootstrap/http/misc/response"
 )
 
 func (m *provider) CORS(next http.HandlerFunc) http.HandlerFunc {

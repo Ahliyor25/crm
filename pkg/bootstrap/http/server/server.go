@@ -2,8 +2,8 @@ package server
 
 import (
 	"fmt"
-	"github.com/waffle-frame/clean-architecture-template/pkg/bootstrap/http/router"
-	"github.com/waffle-frame/clean-architecture-template/pkg/config"
+	"github.com/ahliyor25/crm/pkg/bootstrap/http/router"
+	"github.com/ahliyor25/crm/pkg/config"
 	"go.uber.org/fx"
 	"net"
 	"net/http"

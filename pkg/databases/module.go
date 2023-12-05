@@ -1,7 +1,7 @@
 package databases
 
 import (
-	"github.com/waffle-frame/clean-architecture-template/pkg/config"
+	"github.com/ahliyor25/crm/pkg/config"
 
 	"github.com/sirupsen/logrus"
 	"go.uber.org/fx"

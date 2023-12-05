@@ -1,15 +1,15 @@
 package main
 
 import (
-	"github.com/waffle-frame/clean-architecture-template/internal/service"
-	"github.com/waffle-frame/clean-architecture-template/internal/storage"
-	"github.com/waffle-frame/clean-architecture-template/internal/transport/http/handlers"
-	"github.com/waffle-frame/clean-architecture-template/internal/transport/http/router"
+	"github.com/ahliyor25/crm/internal/service"
+	"github.com/ahliyor25/crm/internal/storage"
+	"github.com/ahliyor25/crm/internal/transport/http/handlers"
+	"github.com/ahliyor25/crm/internal/transport/http/router"
 
-	"github.com/waffle-frame/clean-architecture-template/pkg/bootstrap/http"
-	"github.com/waffle-frame/clean-architecture-template/pkg/config"
-	"github.com/waffle-frame/clean-architecture-template/pkg/databases"
-	"github.com/waffle-frame/clean-architecture-template/pkg/logger"
+	"github.com/ahliyor25/crm/pkg/bootstrap/http"
+	"github.com/ahliyor25/crm/pkg/config"
+	"github.com/ahliyor25/crm/pkg/databases"
+	"github.com/ahliyor25/crm/pkg/logger"
 	"go.uber.org/fx"
 )
 
