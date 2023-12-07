@@ -10,8 +10,8 @@ import (
 func NewRouter(h *handlers.Handler, mw middlewares.Middleware) (router *transportHTTP.HTTPRouter) {
 	router = transportHTTP.NewRouter()
 	router.ConnectSwagger(h.ServeSwaggerFiles)
-
-	router.GET("/ping", h.HPingPong, mw.CORS)
+	router.GET("/ping", h.HPingPong, mw.JWT, mw.CORS)
+	router.POST("/auth/login", h.HAuthLogin, mw.CORS)
 
 	return
 }

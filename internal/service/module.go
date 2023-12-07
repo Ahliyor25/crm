@@ -1,6 +1,11 @@
 package service
 
-import "go.uber.org/fx"
+import (
+	"github.com/ahliyor25/crm/internal/service/auth"
+	"go.uber.org/fx"
+)
 
 // Module ...
-var Module = fx.Options()
+var Module = fx.Options(
+	auth.Module,
+)

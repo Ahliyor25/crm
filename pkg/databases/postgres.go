@@ -3,6 +3,7 @@ package databases
 import (
 	"fmt"
 
+	"github.com/ahliyor25/crm/internal/entities"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
@@ -48,6 +49,8 @@ func Postgres(params Dependencies) (pdb *gorm.DB) {
 	}
 
 	params.Logger.Info("Postgres pong!")
+
+	pdb.AutoMigrate(&entities.User{})
 
 	return
 }

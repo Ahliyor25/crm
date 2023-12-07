@@ -1,6 +1,11 @@
 package storage
 
-import "go.uber.org/fx"
+import (
+	"github.com/ahliyor25/crm/internal/storage/user"
+	"go.uber.org/fx"
+)
 
 // Module ...
-var Module = fx.Options()
+var Module = fx.Options(
+	user.Module,
+)

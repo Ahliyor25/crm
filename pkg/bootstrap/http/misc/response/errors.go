@@ -16,6 +16,7 @@ var (
 	ErrSuccess            = errors.New("success")
 	ErrTokenIsExpired     = errors.New("token is expired")
 	ErrUnauthorized       = errors.New("unauthorized")
+	ErrorUserAlreadyExist = errors.New("user already exist")
 )
 
 // Error statuses
