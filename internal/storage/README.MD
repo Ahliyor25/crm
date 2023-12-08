@@ -1,3 +1,4 @@
+
 # Data layer
 
 Responsible for storing and managing application data. It links the business logic layer to physical data stores such as databases, caches, and file systems.
