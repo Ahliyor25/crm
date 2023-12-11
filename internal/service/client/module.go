@@ -12,6 +12,7 @@ var Module = fx.Provide(NewBCLient)
 // BClient ...
 type BClient interface {
 	Create(client entities.Client) (err error)
+	Get(phone string) (data entities.Client, err error)
 }
 
 // Dependencies ...

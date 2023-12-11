@@ -19,7 +19,6 @@ func (p provider) Get(target entities.Client) (data entities.Client, err error) 
 			err = response.ErrDataNotFound
 			return
 		}
-
 		p.logger.WithFields(logrus.Fields{
 			"err":    err,
 			"target": fmt.Sprintf("%+v", target),

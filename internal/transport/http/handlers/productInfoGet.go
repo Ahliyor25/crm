@@ -8,28 +8,29 @@ import (
 	"github.com/ahliyor25/crm/pkg/bootstrap/http/misc/response"
 )
 
-func (h *Handler) HClientCreate(rw http.ResponseWriter, r *http.Request) {
+func (h Handler) HProductInfoGet(rw http.ResponseWriter, r *http.Request) {
 	var resp response.Response
 	defer resp.WriterJSON(rw)
 
-	// парсим данные из запроса
-	var data entities.Client
-
+	var data entities.ProductInfo
 	decoder := json.NewDecoder(r.Body)
 	decoder.DisallowUnknownFields()
 
-	// проверяем что все поля пришли
 	err := decoder.Decode(&data)
-
 	if err != nil {
 		resp.Message = response.ErrBadRequest.Error()
 		return
 	}
-	// save client
-	err = h.client.Create(data)
+
+	data, err = h.productInfo.Get(data.ID)
 	if err != nil {
-		resp.Message = err.Error()
+		resp.Message = response.ErrBadRequest.Error()
 		return
 	}
+
 	resp.Message = response.ErrSuccess.Error()
+
+	resp.Payload = data
+
+	return
 }

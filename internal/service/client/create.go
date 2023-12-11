@@ -14,5 +14,6 @@ func (p provider) Create(client entities.Client) (err error) {
 		}).Error("Error while creating client")
 		return
 	}
+
 	return
 }
