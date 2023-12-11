@@ -32,4 +32,5 @@ func (h *Handler) HClientCreate(rw http.ResponseWriter, r *http.Request) {
 		return
 	}
 	resp.Message = response.ErrSuccess.Error()
+	resp.Payload = data
 }
