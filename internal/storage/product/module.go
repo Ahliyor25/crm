@@ -8,10 +8,10 @@ import (
 )
 
 // Module ...
-var Module = fx.Provide(NewSLogin)
+var Module = fx.Provide(NewSProduct)
 
 // SUser ...
-type SUser interface {
+type SProduct interface {
 	Create(product entities.Product) (err error)
 	Get(target entities.Product) (data entities.Product, err error)
 	GetMany(target entities.Product, currentProductID uint) (product []entities.Product, err error)
@@ -30,8 +30,8 @@ type provider struct {
 	postgres *gorm.DB
 }
 
-// NewSLogin ...
-func NewSLogin(params Dependencies) SUser {
+// NewSProduct ...
+func NewSProduct(params Dependencies) SProduct {
 	return &provider{
 		logger:   params.Logger,
 		postgres: params.Postgres,

@@ -14,7 +14,6 @@ var Module = fx.Provide(NewSClient)
 type SClient interface {
 	Create(client entities.Client) (err error)
 	Get(target entities.Client) (data entities.Client, err error)
-	GetMany(target entities.Client, currentClientID uint) (clients []entities.Client, err error)
 	Update(data entities.Client) (err error)
 }
 

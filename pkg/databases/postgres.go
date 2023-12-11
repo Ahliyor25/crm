@@ -51,6 +51,10 @@ func Postgres(params Dependencies) (pdb *gorm.DB) {
 	params.Logger.Info("Postgres pong!")
 
 	pdb.AutoMigrate(&entities.User{})
+	pdb.AutoMigrate(&entities.Client{})
+	pdb.AutoMigrate(&entities.ProductInfo{})
+	pdb.AutoMigrate(&entities.Product{})
+	pdb.AutoMigrate(&entities.ProductPriceHistory{})
 
 	return
 }

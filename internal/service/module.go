@@ -2,7 +2,8 @@ package service
 
 import (
 	"github.com/ahliyor25/crm/internal/service/auth"
-	"github.com/ahliyor25/crm/internal/storage/client"
+	"github.com/ahliyor25/crm/internal/service/client"
+
 	"go.uber.org/fx"
 )
 

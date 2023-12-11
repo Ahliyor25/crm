@@ -8,7 +8,7 @@ import (
 )
 
 // Module ...
-var Module = fx.Provide(NewSLogin)
+var Module = fx.Provide()
 
 // SUser ...
 type SUser interface {

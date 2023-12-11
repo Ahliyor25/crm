@@ -8,7 +8,7 @@ import (
 	"github.com/ahliyor25/crm/pkg/bootstrap/http/misc/response"
 )
 
-func (h Handler) HClientCreate(rw http.ResponseWriter, r *http.Request) {
+func (h *Handler) HClientCreate(rw http.ResponseWriter, r *http.Request) {
 	var resp response.Response
 	defer resp.WriterJSON(rw)
 
@@ -20,15 +20,17 @@ func (h Handler) HClientCreate(rw http.ResponseWriter, r *http.Request) {
 
 	// проверяем что все поля пришли
 	err := decoder.Decode(&data)
+
 	if err != nil {
 		resp.Message = response.ErrBadRequest.Error()
 		return
 	}
-
 	// save client
 	err = h.client.Create(data)
 	if err != nil {
 		resp.Message = response.ErrBadRequest.Error()
 		return
 	}
+
+	resp.Message = response.ErrSuccess.Error()
 }
