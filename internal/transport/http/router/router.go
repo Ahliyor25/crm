@@ -30,5 +30,17 @@ func NewRouter(h *handlers.Handler, mw middlewares.Middleware) (router *transpor
 	router.GET("/productPriceHistory", h.HProductPriceHistoryGet, mw.JWT, mw.CORS)
 	router.PUT("/productPriceHistory", h.HProductPriceHistoryUpdate, mw.JWT, mw.CORS)
 
+	// Order
+	router.POST("/order", h.HOrderCreate, mw.JWT, mw.CORS)
+	router.GET("/order", h.HOrderGet, mw.JWT, mw.CORS)
+
+	// Status
+	router.POST("/status", h.HStatusCreate, mw.JWT, mw.CORS)
+	router.GET("/status", h.HStatusGet, mw.JWT, mw.CORS)
+
+	// TrafficSource
+	router.POST("/trafficSource", h.HTrafficSourceCreate, mw.JWT, mw.CORS)
+	router.GET("/trafficSource", h.HTrafficSourceGet, mw.JWT, mw.CORS)
+
 	return
 }

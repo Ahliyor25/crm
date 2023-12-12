@@ -1,4 +1,4 @@
-package client
+package order
 
 import (
 	"github.com/ahliyor25/crm/internal/entities"
@@ -8,13 +8,12 @@ import (
 )
 
 // Module ...
-var Module = fx.Provide(NewSClient)
+var Module = fx.Provide(NewSOrder)
 
-// SClient ...
-type SClient interface {
-	Create(client entities.Client) (err error)
-	Get(target entities.Client) (data entities.Client, err error)
-	Update(data entities.Client) (err error)
+// SOrder ...
+type SOrder interface {
+	Create(order entities.Order) (err error)
+	Get(target entities.Order) (data entities.Order, err error)
 }
 
 // Dependencies ...
@@ -30,8 +29,8 @@ type provider struct {
 	postgres *gorm.DB
 }
 
-// NewSClient ...
-func NewSClient(params Dependencies) SClient {
+// NewSOrder ...
+func NewSOrder(params Dependencies) SOrder {
 	return &provider{
 		logger:   params.Logger,
 		postgres: params.Postgres,

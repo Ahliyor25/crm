@@ -1,17 +1,17 @@
-package product
+package order
 
 import (
 	"github.com/ahliyor25/crm/internal/entities"
 	"github.com/sirupsen/logrus"
 )
 
-func (p provider) Create(product entities.Product) (err error) {
-	err = p.product.Create(product)
+func (p provider) Create(order entities.Order) (err error) {
+	err = p.order.Create(order)
 	if err != nil {
 		p.logger.WithFields(logrus.Fields{
 			"err":     err,
-			"product": product,
-		}).Error("Error while creating ProductInfo")
+			"product": order,
+		}).Error("Error while creating Order")
 		return
 	}
 	return

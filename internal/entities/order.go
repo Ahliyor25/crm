@@ -9,11 +9,13 @@ type Order struct {
 	// Идентификатор статуса заказа
 	StatusID uint `json:"status_id"`
 	// Идентификатор трафика заказа
-	TrafficSourceID uint   `json:"traffic_source_id"`
-	ShippingAddress string `json:"shipping_address"`
-	Discount        uint   `json:"discount"`
-	SubTotal        uint   `json:"sub_total"`
-	Total           uint   `json:"total"`
+	TrafficSourceID uint `json:"traffic_source_id"`
+	// OrderItems
+	OrderItems      []OrderItem `json:"order_items"`
+	ShippingAddress string      `json:"shipping_address"`
+	Discount        uint        `json:"discount"`
+	SubTotal        float32     `json:"sub_total"`
+	Total           float32     `json:"total"`
 
 	// вспомагательная поле для orm
 	Client        Client        `json:"-"`

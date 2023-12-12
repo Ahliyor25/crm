@@ -1,11 +1,11 @@
-package order
+package orderItem
 
 import "github.com/ahliyor25/crm/internal/entities"
 
-func (p provider) Get(orderID uint) (data entities.Order, err error) {
-	data, err = p.order.Get(entities.Order{
+func (p provider) Get(orderITemID uint) (data entities.OrderItem, err error) {
+	data, err = p.orderItem.Get(entities.OrderItem{
 		BaseGorm: entities.BaseGorm{
-			ID: orderID,
+			ID: orderITemID,
 		},
 	})
 	if err != nil {

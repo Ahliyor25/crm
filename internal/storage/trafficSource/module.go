@@ -8,10 +8,10 @@ import (
 )
 
 // Module ...
-var Module = fx.Provide(NewSStatus)
+var Module = fx.Provide(NewSTrafficSource)
 
-// SStatus ...
-type SStatus interface {
+// STrafficSource ...
+type STrafficSource interface {
 	Create(trafficSource entities.TrafficSource) (err error)
 	Get(target entities.TrafficSource) (data entities.TrafficSource, err error)
 	Update(data entities.TrafficSource) (err error)
@@ -29,8 +29,8 @@ type provider struct {
 	postgres *gorm.DB
 }
 
-// NewSStatus ...
-func NewSStatus(params Dependencies) SStatus {
+// NewSTrafficSource ...
+func NewSTrafficSource(params Dependencies) STrafficSource {
 	return &provider{
 		logger:   params.Logger,
 		postgres: params.Postgres,

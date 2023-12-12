@@ -1,15 +1,16 @@
 package entities
 
-// OrderItems ...
-type OrderItems struct {
+// OrderItem ...
+type OrderItem struct {
 	BaseGorm
-	OrderID              uint64 `json:"order_id"`
-	ProductID            uint64 `json:"product_id"`
-	Quantity             uint64 `json:"quantity"`
-	ProductBasePrice     uint64 `json:"product_base_price"`
-	ProductCostPrice     uint64 `json:"product_cost_price"`
-	ProductDiscountPrice uint64 `json:"product_discount_price"`
+	OrderID              uint    `json:"order_id"`
+	ProductID            uint    `json:"product_id"`
+	Quantity             uint    `json:"quantity"`
+	ProductBasePrice     float32 `json:"product_base_price"`
+	ProductCostPrice     float32 `json:"product_cost_price"`
+	ProductDiscountPrice float32 `json:"product_discount_price"`
+
 	// вспомагательная поле для orm
-	Order   Order   `json:"-"`
-	Product Product `json:"-"`
+	Order   Order   `gorm:"foreignkey:OrderID" json:"-"`
+	Product Product `gorm:"foreignkey:ProductID" json:"-"`
 }

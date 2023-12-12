@@ -1,4 +1,4 @@
-package client
+package order
 
 import (
 	"fmt"
@@ -9,8 +9,8 @@ import (
 	"gorm.io/gorm"
 )
 
-func (p provider) Get(target entities.Client) (data entities.Client, err error) {
-	err = p.postgres.Model(&entities.Client{}).
+func (p provider) Get(target entities.Order) (data entities.Order, err error) {
+	err = p.postgres.Model(&entities.Order{}).
 		Where(&target).
 		First(&data).
 		Error
@@ -22,7 +22,7 @@ func (p provider) Get(target entities.Client) (data entities.Client, err error) 
 		p.logger.WithFields(logrus.Fields{
 			"err":    err,
 			"target": fmt.Sprintf("%+v", target),
-		}).Error("An error occurred while retrieving client data")
+		}).Error("An error occurred while retrieving order data")
 
 		err = response.ErrInternalServer
 		return

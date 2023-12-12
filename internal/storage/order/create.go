@@ -1,4 +1,4 @@
-package client
+package order
 
 import (
 	"errors"
@@ -10,12 +10,12 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-func (p provider) Create(client entities.Client) (err error) {
+func (p provider) Create(order entities.Order) (err error) {
 	duplicateEntryError := &pgconn.PgError{Code: "23505"}
 
 	tx := p.postgres.Begin()
 
-	err = p.postgres.Create(&client).Error
+	err = p.postgres.Create(&order).Error
 	if err != nil {
 		tx.Rollback()
 		if errors.As(err, &duplicateEntryError) {
@@ -24,8 +24,8 @@ func (p provider) Create(client entities.Client) (err error) {
 
 		p.logger.WithFields(logrus.Fields{
 			"err":    err,
-			"client": fmt.Sprintf("%+v", client),
-		}).Error("Error while creating client")
+			"client": fmt.Sprintf("%+v", order),
+		}).Error("Error while creating order")
 
 		err = response.ErrInternalServer
 		return

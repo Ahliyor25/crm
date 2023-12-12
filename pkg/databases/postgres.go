@@ -55,6 +55,11 @@ func Postgres(params Dependencies) (pdb *gorm.DB) {
 	pdb.AutoMigrate(&entities.ProductInfo{})
 	pdb.AutoMigrate(&entities.Product{})
 	pdb.AutoMigrate(&entities.ProductPriceHistory{})
+	pdb.AutoMigrate(&entities.Status{})
+	pdb.AutoMigrate(&entities.TrafficSource{})
+	pdb.AutoMigrate(&entities.Order{})
+	pdb.AutoMigrate(&entities.OrderItem{})
+	pdb.AutoMigrate(&entities.ProductPublication{})
 
 	return
 }
