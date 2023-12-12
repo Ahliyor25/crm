@@ -10,7 +10,7 @@ type Product struct {
 	Discount      float32 `json:"discount"`
 	MinQuantity   uint    `json:"min_quantity"`
 	ProductInfoID uint    `json:"product_info_id"`
-	
+
 	// все что ниже - это связи с другими  таблицами
 	ProductInfo ProductInfo `json:"-" gorm:"foreignKey:ProductInfoID"`
 }

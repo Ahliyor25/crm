@@ -12,6 +12,6 @@ type ProductPriceHistory struct {
 	UserID uint `json:"user_id"`
 
 	// вспомагательная поле для orm
-	Product Product `json:"-"`
-	User    User    `json:"-"`
+	Product Product `json:"-" gorm:"foreignKey:ProductID"`
+	User    User    `json:"-" gorm:"foreignKey:UserID"`
 }

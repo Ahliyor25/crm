@@ -11,6 +11,6 @@ type OrderItem struct {
 	ProductDiscountPrice float32 `json:"product_discount_price"`
 
 	// вспомагательная поле для orm
-	Order   Order   `gorm:"foreignkey:OrderID" json:"-"`
-	Product Product `gorm:"foreignkey:ProductID" json:"-"`
+	Order   Order   `gorm:"foreignKey:OrderID" json:"-"`
+	Product Product `gorm:"foreignKey:ProductID" json:"-"`
 }

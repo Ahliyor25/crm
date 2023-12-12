@@ -18,8 +18,8 @@ type Order struct {
 	Total           float32     `json:"total"`
 
 	// вспомагательная поле для orm
-	Client        Client        `json:"-"`
-	User          User          `json:"-"`
-	Status        Status        `json:"-"`
-	TrafficSource TrafficSource `json:"-"`
+	Client        Client        `gorm:"foreignKey:ClientID"  json:"-"`
+	User          User          `json:"-" gorm:"foreignKey:UserID" json:"-"`
+	Status        Status        `gorm:"foreignKey:StatusID" json:"-"`
+	TrafficSource TrafficSource `gorm:"foreignKey:TrafficSourceID" json:"-"`
 }

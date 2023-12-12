@@ -22,7 +22,7 @@ func (h Handler) HOrderGet(rw http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	err = h.order.Create(data)
+	data, err = h.order.Get(data.ID)
 	if err != nil {
 		resp.Message = response.ErrBadRequest.Error()
 		return
