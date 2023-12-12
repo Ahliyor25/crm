@@ -28,6 +28,13 @@ func (h Handler) HOrderGet(rw http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	data.OrderItems, err = h.orderItem.GetList(data.ID)
+
+	if err != nil {
+		resp.Message = response.ErrBadRequest.Error()
+		return
+	}
+
 	resp.Message = response.ErrSuccess.Error()
 	resp.Payload = data
 

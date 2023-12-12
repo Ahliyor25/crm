@@ -13,6 +13,7 @@ var Module = fx.Provide(NewBOrderItem)
 type BOrderItem interface {
 	Create(orderItem entities.OrderItem) (err error)
 	Get(orderItemID uint) (data entities.OrderItem, err error)
+	GetList(orderId uint) (data []entities.OrderItem, err error)
 }
 
 // Dependencies ...
