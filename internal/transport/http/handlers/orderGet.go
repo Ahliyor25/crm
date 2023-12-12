@@ -24,14 +24,13 @@ func (h Handler) HOrderGet(rw http.ResponseWriter, r *http.Request) {
 
 	data, err = h.order.Get(data.ID)
 	if err != nil {
-		resp.Message = response.ErrBadRequest.Error()
+		resp.Message = err.Error()
 		return
 	}
 
 	data.OrderItems, err = h.orderItem.GetList(data.ID)
-
 	if err != nil {
-		resp.Message = response.ErrBadRequest.Error()
+		resp.Message = err.Error()
 		return
 	}
 

@@ -11,7 +11,7 @@ func (p provider) Create(product entities.Product) (err error) {
 		p.logger.WithFields(logrus.Fields{
 			"err":     err,
 			"product": product,
-		}).Error("Error while creating ProductInfo")
+		}).Error("Error while creating Product")
 		return
 	}
 	return

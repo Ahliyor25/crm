@@ -8,7 +8,7 @@ import (
 	"github.com/ahliyor25/crm/pkg/bootstrap/http/misc/response"
 )
 
-func (h Handler) HProductGet(rw http.ResponseWriter, r *http.Request) {
+func (h Handler) HProductCreate(rw http.ResponseWriter, r *http.Request) {
 	var resp response.Response
 	defer resp.WriterJSON(rw)
 
@@ -18,10 +18,10 @@ func (h Handler) HProductGet(rw http.ResponseWriter, r *http.Request) {
 
 	err := decoder.Decode(&data)
 	if err != nil {
-		resp.Message = response.ErrBadRequest.Error()
+		resp.Message = err.Error()
 		return
 	}
-
+	// выполняем бизнес  логику
 	err = h.product.Create(data)
 	if err != nil {
 		resp.Message = response.ErrBadRequest.Error()

@@ -30,12 +30,14 @@ func (h Handler) HOrderCreate(rw http.ResponseWriter, r *http.Request) {
 	for i, item := range data.OrderItems {
 		var product entities.Product
 		product.ID = item.ProductID
-		_, err := h.product.Get(product.ID)
+		product, err := h.product.Get(product.ID)
 		if err != nil {
 			resp.Message = response.ErrBadRequest.Error()
 			return
 		}
 		data.OrderItems[i].ProductBasePrice = product.BasePrice
+		// вычисляем сумму заказа
+		data.Total += product.BasePrice * float32(item.Quantity)
 	}
 
 	// вычисляем общую сумму заказа
