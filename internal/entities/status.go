@@ -4,5 +4,5 @@ package entities
 type Status struct {
 	BaseGorm
 	Name string `json:"name"`
-	Key  string `json:"key"`
+	Key  string `json:"key" gorm:"<-:create;unique"`
 }

@@ -35,7 +35,7 @@ func NewRouter(h *handlers.Handler, mw middlewares.Middleware) (router *transpor
 
 	// TrafficSource
 	router.POST("/trafficSource", h.HTrafficSourceCreate, mw.JWT, mw.CORS)
-	router.GET("/trafficSource", h.HTrafficSourceGet, mw.JWT, mw.CORS)
+	router.GET("/trafficSource/{id}", h.HTrafficSourceGet, mw.JWT, mw.CORS)
 
 	return
 }
