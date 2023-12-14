@@ -10,26 +10,30 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-func (p provider) Create(order entities.Order) (err error) {
+func (p provider) Create(target entities.Order) (order entities.Order, err error) {
 	duplicateEntryError := &pgconn.PgError{Code: "23505"}
 
 	tx := p.postgres.Begin()
 
-	err = p.postgres.Create(&order).Error
+	err = p.postgres.Create(&target).Error
 	if err != nil {
 		tx.Rollback()
 		if errors.As(err, &duplicateEntryError) {
-			return response.ErrClientAlreadyRegistered
+			err = response.ErrClientAlreadyRegistered
+			return
 		}
 
 		p.logger.WithFields(logrus.Fields{
-			"err":    err,
-			"client": fmt.Sprintf("%+v", order),
+			"err":   err,
+			"order": fmt.Sprintf("%+v", target),
 		}).Error("Error while creating order")
 
 		err = response.ErrInternalServer
 		return
 	}
 	tx.Commit()
+
+	order = target
+
 	return
 }

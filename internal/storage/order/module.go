@@ -12,7 +12,7 @@ var Module = fx.Provide(NewSOrder)
 
 // SOrder ...
 type SOrder interface {
-	Create(order entities.Order) (err error)
+	Create(target entities.Order) (order entities.Order, err error)
 	Get(target entities.Order) (data entities.Order, err error)
 }
 
