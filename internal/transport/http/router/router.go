@@ -28,6 +28,7 @@ func NewRouter(h *handlers.Handler, mw middlewares.Middleware) (router *transpor
 	// Order
 	router.POST("/order", h.HOrderCreate, mw.JWT, mw.CORS)
 	router.GET("/order", h.HOrderGet, mw.JWT, mw.CORS)
+	router.PUT("/order", h.HOrderUpdate, mw.JWT, mw.CORS)
 
 	// Status
 	router.POST("/status", h.HStatusCreate, mw.JWT, mw.CORS)

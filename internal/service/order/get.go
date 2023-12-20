@@ -8,6 +8,7 @@ func (p provider) Get(orderID uint) (data entities.Order, err error) {
 			ID: orderID,
 		},
 	})
+
 	if err != nil {
 		//p.logger.WithField("err", err).Error("Error while getting Product")
 		return

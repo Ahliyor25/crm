@@ -14,6 +14,7 @@ var Module = fx.Provide(NewSOrder)
 type SOrder interface {
 	Create(target entities.Order) (order entities.Order, err error)
 	Get(target entities.Order) (data entities.Order, err error)
+	Update(target entities.Order) (err error)
 }
 
 // Dependencies ...

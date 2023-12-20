@@ -31,5 +31,19 @@ func (h Handler) HAuthLogin(rw http.ResponseWriter, r *http.Request) {
 		"token":         token,
 		"refresh_token": refreshToken,
 	}
-
 }
+
+// swagger:operation POST /auth/login Authorization Authorization
+//
+// Авторизация
+//
+// ## Роут предназначен для авторизации пользователя в системе
+//
+// ---
+//
+// responses:
+//
+//	200:
+//	  description: Pong ! 🥎
+//	  schema:
+//	    "$ref": "#/responses/success/schema"

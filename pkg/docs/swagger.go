@@ -1,10 +1,8 @@
-// Package response {{replace_ProjectName}}
+// Package response CRM
 //
-// ## {{replace_TitleProjectSmallDescription}}
+// ## Автоматизация продаж
 //
-// {{replace_ProjectDescription}}
-//
-// Version: {{replace_ProjectVersion}}
+// Version: 0.0.1
 //
 //	Consumes:
 //	- application/json
@@ -12,14 +10,15 @@
 //	Produces:
 //	- application/json
 //
-// BasePath: /{{replace_BasePath}}
+// BasePath: /api
 //
 // SecurityDefinitions:
 // bearer:
-//  type: apiKey
-//  name: Authorization
-//  in: header
-//  example: Bearer
+//
+//	type: apiKey
+//	name: Authorization
+//	in: header
+//	example: Bearer
 //
 // swagger:meta
 package response

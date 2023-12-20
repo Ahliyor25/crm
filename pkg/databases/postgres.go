@@ -3,6 +3,7 @@ package databases
 import (
 	"fmt"
 
+	"github.com/ahliyor25/crm/internal/entities"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
@@ -49,15 +50,15 @@ func Postgres(params Dependencies) (pdb *gorm.DB) {
 
 	params.Logger.Info("Postgres pong!")
 
-	//pdb.AutoMigrate(&entities.User{})
-	//pdb.AutoMigrate(&entities.Client{})
-	//pdb.AutoMigrate(&entities.ProductInfo{})
-	//pdb.AutoMigrate(&entities.Product{})
-	//pdb.AutoMigrate(&entities.ProductPriceHistory{})
-	//pdb.AutoMigrate(&entities.Status{})
-	//pdb.AutoMigrate(&entities.TrafficSource{})
-	//pdb.AutoMigrate(&entities.Order{})
-	//pdb.AutoMigrate(&entities.OrderItem{})
+	pdb.AutoMigrate(&entities.User{})
+	pdb.AutoMigrate(&entities.Client{})
+	pdb.AutoMigrate(&entities.ProductInfo{})
+	pdb.AutoMigrate(&entities.Product{})
+	pdb.AutoMigrate(&entities.ProductPriceHistory{})
+	pdb.AutoMigrate(&entities.Status{})
+	pdb.AutoMigrate(&entities.TrafficSource{})
+	pdb.AutoMigrate(&entities.Order{})
+	pdb.AutoMigrate(&entities.OrderItem{})
 	//pdb.AutoMigrate(&entities.ProductPublication{})
 
 	return

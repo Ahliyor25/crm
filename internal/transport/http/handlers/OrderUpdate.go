@@ -9,7 +9,7 @@ import (
 	"github.com/ahliyor25/crm/pkg/bootstrap/http/misc/response"
 )
 
-func (h Handler) HOrderCreate(rw http.ResponseWriter, r *http.Request) {
+func (h Handler) HOrderUpdate(rw http.ResponseWriter, r *http.Request) {
 	var resp response.Response
 	defer resp.WriterJSON(rw)
 
@@ -19,15 +19,14 @@ func (h Handler) HOrderCreate(rw http.ResponseWriter, r *http.Request) {
 	decoder.DisallowUnknownFields()
 
 	err := decoder.Decode(&data)
-
 	if err != nil {
-		resp.Message = response.ErrBadRequest.Error()
 		log.Println(err)
+		resp.Message = response.ErrBadRequest.Error()
 		return
 	}
 
 	// выполляеем бизнес логику
-	order, err := h.order.Create(data)
+	err = h.order.Update(data)
 
 	if err != nil {
 		resp.Message = err.Error()
@@ -35,6 +34,4 @@ func (h Handler) HOrderCreate(rw http.ResponseWriter, r *http.Request) {
 	}
 
 	resp.Message = response.ErrSuccess.Error()
-	resp.Payload = order
-
 }
