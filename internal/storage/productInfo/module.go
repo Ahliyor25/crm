@@ -14,7 +14,7 @@ var Module = fx.Provide(NewSProductInfo)
 type SProductInfo interface {
 	Create(productInfo entities.ProductInfo) (err error)
 	Get(target entities.ProductInfo) (data entities.ProductInfo, err error)
-	GetMany(target entities.ProductInfo, currentProductInfoID uint) (productInfo []entities.ProductInfo, err error)
+	GetMany() (productInfo []entities.ProductInfo, err error)
 	Update(data entities.ProductInfo) (err error)
 }
 

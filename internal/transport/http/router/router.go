@@ -20,6 +20,7 @@ func NewRouter(h *handlers.Handler, mw middlewares.Middleware) (router *transpor
 	// ProductInfo
 	router.POST("/productInfo", h.HProductInfoCreate, mw.JWT, mw.CORS)
 	router.GET("/productInfo", h.HProductInfoGet, mw.JWT, mw.CORS)
+	router.GET("/productInfo/getList", h.HProductInfoGetList, mw.JWT, mw.CORS)
 
 	// Product
 	router.POST("/product", h.HProductCreate, mw.JWT, mw.CORS)

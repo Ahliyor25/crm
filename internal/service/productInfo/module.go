@@ -13,6 +13,7 @@ var Module = fx.Provide(NewBProductInfo)
 type BProductInfo interface {
 	Create(productInfo entities.ProductInfo) (err error)
 	Get(productInfoID uint) (data entities.ProductInfo, err error)
+	GetList() (productInfo []entities.ProductInfo, err error)
 }
 
 // Dependencies ...
